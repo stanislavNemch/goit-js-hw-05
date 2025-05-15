@@ -1,6 +1,9 @@
 const getUsersWithFriend = (users, friendName) =>
     users.filter((user) => user.friends.includes(friendName));
 
+const getUsersWithFriendOption = (users, friendName) =>
+    users.filter((user) => user.friends.indexOf(friendName) !== -1);
+
 // Test cases
 
 const allUsers = [
@@ -59,3 +62,29 @@ console.log(getUsersWithFriend(allUsers, "Goldie Gentry"));
 // ]
 
 console.log(getUsersWithFriend(allUsers, "Adrian Cross")); // []
+
+console.log(getUsersWithFriendOption(allUsers, "Briana Decker"));
+// [
+//   {
+//     name: "Sharlene Bush",
+//     friends: ["Briana Decker", "Sharron Pace"]
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     friends: ["Goldie Gentry", "Briana Decker"]
+//   }
+// ]
+
+console.log(getUsersWithFriendOption(allUsers, "Goldie Gentry"));
+// [
+//   {
+//     name: "Elma Head",
+//     friends: ["Goldie Gentry", "Aisha Tran"]
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     friends: ["Goldie Gentry", "Briana Decker"]
+//   }
+// ]
+
+console.log(getUsersWithFriendOption(allUsers, "Adrian Cross")); // []
